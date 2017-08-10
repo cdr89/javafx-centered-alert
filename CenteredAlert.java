@@ -18,6 +18,7 @@ public class CenteredAlert extends Alert {
 	protected Stage primaryStage;
 	protected Object dialogFieldValue;
 
+	
 	public CenteredAlert(@NamedArg("alertType") AlertType alertType, Stage primaryStage) {
 		super(alertType);
 		init(primaryStage);
