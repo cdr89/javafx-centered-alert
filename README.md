@@ -1,4 +1,4 @@
-# Java FX centered alert implementation
+# Java FX CenteredAlert implementation
 
 ## How to use in your code:
 
