@@ -18,7 +18,6 @@ public class CenteredAlert extends Alert {
 	protected Stage primaryStage;
 	protected Object dialogFieldValue;
 
-	
 	public CenteredAlert(@NamedArg("alertType") AlertType alertType, Stage primaryStage) {
 		super(alertType);
 		init(primaryStage);
@@ -33,6 +32,22 @@ public class CenteredAlert extends Alert {
 	protected void init(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		dialogFieldValue = getDialogFieldValue();
+	}
+
+	public void showCentered() {
+		Toolkit.getToolkit().checkFxUserThread();
+
+		Event.fireEvent(this, new DialogEvent(this, DialogEvent.DIALOG_SHOWING));
+		if (getWidth() == Double.NaN && getHeight() == Double.NaN) {
+			invokeMethodByName(dialogFieldValue, "sizeToScene");
+		}
+
+		invokeMethodByName(dialogFieldValue, "show");
+		centerAlertInStage();
+		hide();
+		invokeMethodByName(dialogFieldValue, "show");
+
+		Event.fireEvent(this, new DialogEvent(this, DialogEvent.DIALOG_SHOWN));
 	}
 
 	public Optional<ButtonType> showCenteredAndWait() {
