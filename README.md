@@ -4,7 +4,7 @@
 
 If you need to invoke showAndWait() method, use showCenteredAndWait() instead:
 ```java
-CenteredAlert alert = new CenteredAlert(AlertType.CONFIRMATION, getPrimaryStage());
+CenteredAlert alert = new CenteredAlert(AlertType.CONFIRMATION, node);
 alert.setTitle("Title");
 alert.setHeaderText("Header Text");
 alert.setContentText("Content text");
@@ -19,7 +19,7 @@ if (result.get() == ButtonType.OK) {
 
 If you need to invoke show() method, use showCentered() instead:
 ```java
-CenteredAlert alert = new CenteredAlert(AlertType.INFORMATION, getPrimaryStage());
+CenteredAlert alert = new CenteredAlert(AlertType.INFORMATION, node);
 alert.setTitle("Title");
 alert.setHeaderText("Header Text");
 alert.setContentText("Content text");
